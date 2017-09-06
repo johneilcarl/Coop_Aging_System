@@ -8,3 +8,12 @@ D:\Cooperative_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooper
 D:\Cooperative_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.csproj.GenerateResource.Cache
 D:\Cooperative_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.exe
 D:\Cooperative_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.pdb
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\bin\Debug\Cooperative_Aging.exe.config
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.exe
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.pdb
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\bin\Debug\Cooperative_Aging.exe
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\bin\Debug\Cooperative_Aging.pdb
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.csprojResolveAssemblyReference.cache
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.Form1.resources
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.Properties.Resources.resources
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.csproj.GenerateResource.Cache
