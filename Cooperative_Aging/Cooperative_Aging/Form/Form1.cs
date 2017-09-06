@@ -53,6 +53,7 @@ namespace Cooperative_Aging
                     MyConn.Open();
                     MyCommand2.ExecuteReader();
                     MessageBox.Show("Successfully created new patient profile!");
+                    MyConn.Close();
 
 
             }
