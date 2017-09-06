@@ -20,17 +20,18 @@ namespace Cooperative_Aging
             InitializeComponent();
         }
 
-        string connString = "server=localhost;database=test;Persist Security Info = True; User Id=root; password=root";
+        string connString = "server=localhost;database=cooperative;Persist Security Info = True; User Id=root; password=root";
 
         private void Form1_Load(object sender, EventArgs e)
         {
             MySqlConnection MyConn = new MySqlConnection(connString);
 
             DataTable displayGrid = new DataTable();
-            string displayclass = "SELECT * FROM testtable1;";
+            string displayclass = "SELECT * FROM membersinfo;";
             MySqlCommand displaytest = new MySqlCommand(displayclass, MyConn);
             MySqlDataAdapter da1 = new MySqlDataAdapter(displaytest);
             da1.Fill(displayGrid);
+            dataGridView1.DataSource = displayGrid;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
