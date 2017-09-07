@@ -60,7 +60,7 @@
             this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
             this.metroDateTime1.TabIndex = 2;
             // 
-            // frmReport
+            // Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,7 +68,7 @@
             this.Controls.Add(this.metroDateTime1);
             this.Controls.Add(this.metroTextButton1);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "frmReport";
+            this.Name = "Report";
             this.Text = "Report";
             this.Load += new System.EventHandler(this.Report_Load);
             this.ResumeLayout(false);
