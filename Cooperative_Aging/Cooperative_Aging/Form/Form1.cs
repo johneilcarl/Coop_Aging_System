@@ -28,7 +28,8 @@ namespace Cooperative_Aging
         {
 
             MySqlConnection MyConn = new MySqlConnection(connString);
-            dTime.MaxDate = DateTime.Now;
+            //dTime.MaxDate = DateTime.Now;
+            metroLabel10.Text = DateTime.Now.ToShortDateString();
 
             // display the list of names
             DataTable nameTable = new DataTable();
@@ -43,14 +44,14 @@ namespace Cooperative_Aging
 
             //displays the list of type of loans
             DataTable typeofloansTable = new DataTable();
-            string querytypeofLoans = "SELECT loancode, concat(loancode,', ',description) AS loans FROM typeofloans";
+            string querytypeofLoans = "SELECT loancode, duration, concat(loancode,', ',description) AS loans FROM typeofloans";
             MySqlCommand loanCom = new MySqlCommand(querytypeofLoans, MyConn);
             MySqlDataAdapter da2 = new MySqlDataAdapter(loanCom);
             da2.Fill(typeofloansTable);
 
             cbtypeofLoans.DataSource = typeofloansTable;
             cbtypeofLoans.DisplayMember = "loans";
-            cbtypeofLoans.ValueMember = "loancode";
+            cbtypeofLoans.ValueMember = "duration";
 
 
             cbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -79,6 +80,19 @@ namespace Cooperative_Aging
                  MessageBox.Show("Successfully created new patient profile!");
                  MyConn.Close();
                  */
+                 //
+                string currentDate = this.metroLabel10.Text;
+                DateTime currentdatee = DateTime.Parse(currentDate);
+                //
+
+                string dueDateloans = dueDate.Value.ToShortDateString();
+                DateTime dueDateloanss = DateTime.Parse(dueDateloans);
+
+                TimeSpan getdays = dueDateloanss - currentdatee;
+               // int getdayss = getdays;
+                MessageBox.Show(getdays.ToString());
+
+
 
             }
 
@@ -150,6 +164,23 @@ namespace Cooperative_Aging
             Form.frmReport report = new Form.frmReport();
             report.ShowDialog();
 
+        }
+
+        
+        private void dTime_ValueChanged(object sender, EventArgs e)
+        {
+            
+            string loanDuration = cbtypeofLoans.SelectedValue.ToString();
+            MessageBox.Show(dTime.Value.ToShortDateString() + "Now");
+            string dueDate1 = dTime.Value.AddMonths(Int32.Parse(loanDuration)+1).ToShortDateString();
+            MessageBox.Show(dueDate1 + "Expired");
+
+            dueDate.Text = dueDate1;
+        }
+
+        private void cbtypeofLoans_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // MessageBox.Show(cbtypeofLoans.SelectedValue.ToString());
         }
     }
 }
