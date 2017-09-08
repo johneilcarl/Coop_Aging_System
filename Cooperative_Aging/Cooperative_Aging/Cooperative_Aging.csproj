@@ -65,6 +65,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\dbconn.cs" />
+    <Compile Include="cooperativeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cooperativeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form\DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +99,7 @@
       <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Report1.rdlc" />
+    <EmbeddedResource Include="Form\Report2.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -100,6 +109,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="cooperativeDataSet.xsc">
+      <DependentUpon>cooperativeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="cooperativeDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cooperativeDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cooperativeDataSet.xss">
+      <DependentUpon>cooperativeDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Form\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>

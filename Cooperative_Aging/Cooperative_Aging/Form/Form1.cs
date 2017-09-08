@@ -88,9 +88,9 @@ namespace Cooperative_Aging
                 string dueDateloans = dueDate.Value.ToShortDateString();
                 DateTime dueDateloanss = DateTime.Parse(dueDateloans);
 
-                TimeSpan getdays = dueDateloanss - currentdatee;
+                TimeSpan getdays = currentdatee - dueDateloanss;
                // int getdayss = getdays;
-                MessageBox.Show(getdays.ToString());
+                MessageBox.Show(getdays.Days.ToString());
 
 
 
@@ -171,16 +171,16 @@ namespace Cooperative_Aging
         {
             
             string loanDuration = cbtypeofLoans.SelectedValue.ToString();
-            MessageBox.Show(dTime.Value.ToShortDateString() + "Now");
+            //MessageBox.Show(dTime.Value.ToShortDateString() + "Now");
             string dueDate1 = dTime.Value.AddMonths(Int32.Parse(loanDuration)+1).ToShortDateString();
-            MessageBox.Show(dueDate1 + "Expired");
+            //MessageBox.Show(dueDate1 + "Expired");
 
             dueDate.Text = dueDate1;
         }
 
         private void cbtypeofLoans_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // MessageBox.Show(cbtypeofLoans.SelectedValue.ToString());
+            MessageBox.Show(cbtypeofLoans.SelectedValue.ToString());
         }
     }
 }
