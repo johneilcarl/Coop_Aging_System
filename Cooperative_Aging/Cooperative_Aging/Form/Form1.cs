@@ -21,6 +21,7 @@ namespace Cooperative_Aging
         }
 
         string connString = "server=localhost;database=cooperative;Persist Security Info = True; User Id=root; password=root";
+        string sampleAgingDatabase = "server=localhost;database=sample_aging;Persist Security Info = True; User Id=root; password=root";
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -66,7 +67,7 @@ namespace Cooperative_Aging
         {
             try
             {
-                MySqlConnection MyConn = new MySqlConnection(connString);
+                MySqlConnection MyConn = new MySqlConnection(sampleAgingDatabase);
 
                 /* string Query = "INSERT INTO testtable1 (fullName) VALUES ('"
                      + this.metroTextBox1.Text +

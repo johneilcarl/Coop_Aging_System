@@ -33,3 +33,6 @@ D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Agin
 D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\Cooperative_Aging.Form.frmReport.resources
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\bin\Debug\MySql.Data.dll
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\RdlCompile.cache
+D:\Cooperative_Aging_System\Coop_Aging_System\Cooperative_Aging\Cooperative_Aging\obj\Debug\RdlCompile.compiled
