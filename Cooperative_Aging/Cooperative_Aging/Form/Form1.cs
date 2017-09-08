@@ -161,7 +161,7 @@ namespace Cooperative_Aging
 
         private void metroTextButton3_Click(object sender, EventArgs e)
         {
-            Form.frmReport report = new Form.frmReport();
+            Form.printReports report = new Form.printReports();
             report.ShowDialog();
 
         }
