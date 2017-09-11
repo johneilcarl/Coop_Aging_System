@@ -82,17 +82,20 @@ namespace Cooperative_Aging
                 // int getdayss = getdays;
                 //MessageBox.Show(getdays.Days.ToString());
 
-                string loanDuration = cbtypeofLoans.SelectedValue.ToString();
-                int loanDuration1 = Int32.Parse(loanDuration);
+                string loanDuration = cbtypeofLoans.SelectedValue.ToString(); //getting the value/duration of the selected type of loan. for example output: 12
+                int loanDuration1 = Int32.Parse(loanDuration); //then converted to int
 
                 Double prLoan = Convert.ToDouble(tbBalance.Text);
 
                 //interest calculation in EMERGENCY LOAN
                 Double interestRate = 6; //not permanent value '6'
-                Double interest = Math.Round((prLoan * (interestRate / 100)) / (loanDuration1-6), 2);
+                Double interest = Math.Round((prLoan * (interestRate / 100)) / (loanDuration1-6), 2); // loan duration minus 6 months. because that's where the interest start blablablabla
 
-                Double monthlyAmort = Math.Round(((prLoan * (interestRate / 100)) / 12) + prLoan / 12, 2);
-                Double principalAmount = Math.Round(((prLoan * (interestRate / 100)) / 12) + prLoan / 12, 2);
+                //// for example input and output:::: 
+                ////(60000 * 0.06 / 12 )+ (60000 /12)
+                ///=3600/12 = 300 + 5000 = 5300 -- this is the monthly amortization or the monthly pay
+                Double monthlyAmort = Math.Round(((prLoan * (interestRate / 100)) / /*12*/loanDuration1) + prLoan / /*12*/loanDuration1, 2); // a every month pay of your loans, it calculates by dividing the amount loan and the months to pay the loan. blablabla
+                Double principalAmount = Math.Round(((prLoan * (interestRate / 100)) / /*12*/loanDuration1) + prLoan / /*12*/loanDuration1, 2); // the same with the monthlyamort, i just made this to made the calculation of the principal amount after 6mons. blablabla
                 //MessageBox.Show(Convert.ToString(interest));
 
 
@@ -100,7 +103,7 @@ namespace Cooperative_Aging
                 for (int x = 1; x <= loanDuration1 /*12*/; x++)
                 {
                     DateTime firstMonth = DateTime.Parse(dTime.Value.AddMonths(1).ToShortDateString()); //nopay for 1st month
-                    string dueDate = firstMonth.AddMonths(x+1).ToShortDateString(); // the month where to start the paytime
+                    string dueDate = firstMonth.AddMonths(x).ToShortDateString(); // the month where to start the paytime// this increment the month by 1
                     //MessageBox.Show(dueDate);
                     int rowId = metroGrid1.Rows.Add();
                     // Grab the new row!
