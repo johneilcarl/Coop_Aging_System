@@ -70,16 +70,14 @@ namespace Cooperative_Aging
             {
                 MySqlConnection MyConn = new MySqlConnection(sampleAgingDatabase);
 
-                /* string Query = "INSERT INTO testtable1 (fullName) VALUES ('"
-                     + this.metroTextBox1.Text +
-                     "');";
+                /* string Query = "";
 
                  MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn);
                  MyConn.Open();
                  MyCommand2.ExecuteReader();
                  MessageBox.Show("Successfully created new patient profile!");
-                 MyConn.Close();
-                 */
+                 MyConn.Close();*/
+                 
                  //
                 string currentDate = this.metroLabel10.Text;
                 DateTime currentdatee = DateTime.Parse(currentDate);
@@ -89,10 +87,57 @@ namespace Cooperative_Aging
                 DateTime dueDateloanss = DateTime.Parse(dueDateloans);
 
                 TimeSpan getdays = currentdatee - dueDateloanss;
-               // int getdayss = getdays;
-                MessageBox.Show(getdays.Days.ToString());
+                // int getdayss = getdays;
+                //MessageBox.Show(getdays.Days.ToString());
+
+                string loanDuration = cbtypeofLoans.SelectedValue.ToString();
+                int loanDuration1 = Int32.Parse(loanDuration);
+
+                Double prLoan = Convert.ToDouble(tbBalance.Text);
+
+                //interest calculation in EMERGENCY LOAN
+                Double interestRate = 6; //not permanent value '6'
+                Double interest = Math.Round((prLoan * (interestRate / 100)) / (loanDuration1-6), 2);
+
+                Double monthlyAmort = Math.Round(((prLoan * (interestRate / 100)) / 12) + prLoan / 12, 2);
+                Double principalAmount = Math.Round(((prLoan * (interestRate / 100)) / 12) + prLoan / 12, 2);
+                //MessageBox.Show(Convert.ToString(interest));
 
 
+                
+                for (int x = 1; x <= loanDuration1 /*12*/; x++)
+                {
+                    DateTime firstMonth = DateTime.Parse(dTime.Value.AddMonths(1).ToShortDateString()); //nopay for 1st month
+                    string dueDate = firstMonth.AddMonths(x+1).ToShortDateString(); // the month where to start the paytime
+                    //MessageBox.Show(dueDate);
+                    int rowId = metroGrid1.Rows.Add();
+                    // Grab the new row!
+                    DataGridViewRow row = metroGrid1.Rows[rowId];
+
+                    // Add the data
+                    row.Cells["Full_Name"].Value = cbName.Text;
+                    row.Cells["Due_Date"].Value = dueDate;
+                    row.Cells["Amount_Granted"].Value = prLoan;
+                    row.Cells["Monthly_Amortization"].Value = monthlyAmort;
+                    row.Cells["Principal_Amount"].Value = principalAmount;
+
+                    Double getBalance = prLoan - (principalAmount * x);
+                    row.Cells["Running_Balance"].Value = getBalance;
+
+                    if(row.Cells["Interest"].Value == "")
+                    {
+                        MessageBox.Show("no interest");
+                    }
+                    if (x >= 7)
+                    {
+                        Double getBalancewithInterest = prLoan - (principalMinusInterest * x);
+                        row.Cells["Principal_Amount"].Value = principalMinusInterest;
+                        row.Cells["Interest"].Value = interest;
+                    }
+
+                    
+                }
+                
 
             }
 
@@ -180,7 +225,7 @@ namespace Cooperative_Aging
 
         private void cbtypeofLoans_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(cbtypeofLoans.SelectedValue.ToString());
+            //MessageBox.Show(cbtypeofLoans.SelectedValue.ToString());
         }
     }
 }
