@@ -70,15 +70,7 @@ namespace Cooperative_Aging
             {
                 MySqlConnection MyConn = new MySqlConnection(sampleAgingDatabase);
 
-                /* string Query = "";
-
-                 MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn);
-                 MyConn.Open();
-                 MyCommand2.ExecuteReader();
-                 MessageBox.Show("Successfully created new patient profile!");
-                 MyConn.Close();*/
-                 
-                 //
+                metroGrid1.Rows.Clear();
                 string currentDate = this.metroLabel10.Text;
                 DateTime currentdatee = DateTime.Parse(currentDate);
                 //
@@ -104,7 +96,7 @@ namespace Cooperative_Aging
                 //MessageBox.Show(Convert.ToString(interest));
 
 
-                
+
                 for (int x = 1; x <= loanDuration1 /*12*/; x++)
                 {
                     DateTime firstMonth = DateTime.Parse(dTime.Value.AddMonths(1).ToShortDateString()); //nopay for 1st month
@@ -124,15 +116,19 @@ namespace Cooperative_Aging
                     Double getBalance = prLoan - (principalAmount * x);
                     row.Cells["Running_Balance"].Value = getBalance;
 
-                    if(row.Cells["Interest"].Value == "")
+                    if (x >= 7) //month where to start the interest
                     {
-                        MessageBox.Show("no interest");
-                    }
-                    if (x >= 7)
-                    {
-                        Double getBalancewithInterest = prLoan - (principalMinusInterest * x);
+                        //calculation to descrease the principal from interest after 6mons
+                        Double principalMinusInterest = principalAmount - interest;
                         row.Cells["Principal_Amount"].Value = principalMinusInterest;
+
                         row.Cells["Interest"].Value = interest;
+
+                        Double getBalance2 = (prLoan - (monthlyAmort * 6)); // get the balance after 6mons
+                        Double withInterest = (getBalance2 - (principalMinusInterest * (x - 6))); //decrement running balance with interest
+                        row.Cells["Running_Balance"].Value = withInterest;
+
+
                     }
 
                     
