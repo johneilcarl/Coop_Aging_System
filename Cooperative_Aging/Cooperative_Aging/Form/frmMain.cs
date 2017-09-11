@@ -112,29 +112,44 @@ namespace Cooperative_Aging
                     // Add the data
                     row.Cells["Full_Name"].Value = cbName.Text;
                     row.Cells["Due_Date"].Value = dueDate;
-                    row.Cells["Amount_Granted"].Value = prLoan;
-                    row.Cells["Monthly_Amortization"].Value = monthlyAmort;
-                    row.Cells["Principal_Amount"].Value = principalAmount;
+                    row.Cells["Amount_Granted"].Value = prLoan.ToString("#,##0.00");
+                    row.Cells["Monthly_Amortization"].Value = monthlyAmort.ToString("#,##0.00");
+                    row.Cells["Principal_Amount"].Value = principalAmount.ToString("#,##0.00");
+                    row.Cells["Amount_Paid"].Value = "0";
+                    row.Cells["Amount_Not_Paid"].Value = "0";
 
                     Double getBalance = prLoan - (principalAmount * x);
-                    row.Cells["Running_Balance"].Value = getBalance;
+                    row.Cells["Running_Balance"].Value = getBalance.ToString("#,##0.00");
 
                     if (x >= 7) //month where to start the interest
                     {
                         //calculation to descrease the principal from interest after 6mons
                         Double principalMinusInterest = principalAmount - interest;
-                        row.Cells["Principal_Amount"].Value = principalMinusInterest;
+                        row.Cells["Principal_Amount"].Value = principalMinusInterest.ToString("#,##0.00");
 
-                        row.Cells["Interest"].Value = interest;
+                        row.Cells["Interest"].Value = interest.ToString("#,##0.00");
 
                         Double getBalance2 = (prLoan - (monthlyAmort * 6)); // get the balance after 6mons
                         Double withInterest = (getBalance2 - (principalMinusInterest * (x - 6))); //decrement running balance with interest
-                        row.Cells["Running_Balance"].Value = withInterest;
+                        row.Cells["Running_Balance"].Value = withInterest.ToString("#,##0.00");
 
 
                     }
 
-                    
+                    Double sumMonthly = 0;
+                    Double sumPrincipal = 0;
+                    Double sumInterest = 0;
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        sumMonthly += Convert.ToDouble(metroGrid1.Rows[i].Cells["Monthly_Amortization"].Value);
+                        sumPrincipal += Convert.ToDouble(metroGrid1.Rows[i].Cells["Principal_Amount"].Value);
+                        sumInterest += Convert.ToDouble(metroGrid1.Rows[i].Cells["Interest"].Value);
+                    }
+                    totalMonthly.Text = sumMonthly.ToString("#,##0.00");
+                    totalPrincipal.Text = sumPrincipal.ToString("#,##0.00");
+                    totalInterest.Text = sumInterest.ToString("#,##0.00");
+
+
                 }
                 
 
