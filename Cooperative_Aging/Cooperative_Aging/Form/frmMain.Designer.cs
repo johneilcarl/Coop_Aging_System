@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
             this.metroTextButton1 = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.cbName = new MetroFramework.Controls.MetroComboBox();
@@ -62,6 +62,24 @@
             this.totalPrincipal = new MetroFramework.Controls.MetroLabel();
             this.totalInterest = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.lbfullName = new MetroFramework.Controls.MetroLabel();
+            this.lbtypeofLoans = new MetroFramework.Controls.MetroLabel();
+            this.lbdateGranted = new MetroFramework.Controls.MetroLabel();
+            this.lbgrossLoan = new MetroFramework.Controls.MetroLabel();
+            this.lbInterest = new MetroFramework.Controls.MetroLabel();
+            this.lbmonthAmort = new MetroFramework.Controls.MetroLabel();
+            this.lbtotalAmort = new MetroFramework.Controls.MetroLabel();
+            this.lbtotalPrincipal = new MetroFramework.Controls.MetroLabel();
+            this.lbtotalInterest = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,14 +91,14 @@
             this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Full_Name,
@@ -92,14 +110,14 @@
             this.Running_Balance,
             this.Amount_Paid,
             this.Amount_Not_Paid});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -107,14 +125,14 @@
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.ReadOnly = true;
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGrid1.Size = new System.Drawing.Size(997, 357);
@@ -122,6 +140,8 @@
             // 
             // metroTextButton1
             // 
+            this.metroTextButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.metroTextButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroTextButton1.Image = null;
             this.metroTextButton1.Location = new System.Drawing.Point(12, 315);
             this.metroTextButton1.Name = "metroTextButton1";
@@ -383,6 +403,8 @@
             // totalMonthly
             // 
             this.totalMonthly.AutoSize = true;
+            this.totalMonthly.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.totalMonthly.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.totalMonthly.Location = new System.Drawing.Point(414, 640);
             this.totalMonthly.Name = "totalMonthly";
             this.totalMonthly.Size = new System.Drawing.Size(82, 19);
@@ -392,6 +414,8 @@
             // totalPrincipal
             // 
             this.totalPrincipal.AutoSize = true;
+            this.totalPrincipal.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.totalPrincipal.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.totalPrincipal.Location = new System.Drawing.Point(552, 640);
             this.totalPrincipal.Name = "totalPrincipal";
             this.totalPrincipal.Size = new System.Drawing.Size(85, 19);
@@ -401,6 +425,8 @@
             // totalInterest
             // 
             this.totalInterest.AutoSize = true;
+            this.totalInterest.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.totalInterest.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.totalInterest.Location = new System.Drawing.Point(686, 640);
             this.totalInterest.Name = "totalInterest";
             this.totalInterest.Size = new System.Drawing.Size(77, 19);
@@ -410,17 +436,244 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel3.Location = new System.Drawing.Point(408, 643);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(363, 19);
             this.metroLabel3.TabIndex = 45;
             this.metroLabel3.Text = "___________________________________________________________";
             // 
+            // lbfullName
+            // 
+            this.lbfullName.AutoSize = true;
+            this.lbfullName.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbfullName.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbfullName.Location = new System.Drawing.Point(251, 111);
+            this.lbfullName.Name = "lbfullName";
+            this.lbfullName.Size = new System.Drawing.Size(104, 25);
+            this.lbfullName.TabIndex = 46;
+            this.lbfullName.Text = "FULL NAME";
+            this.lbfullName.Visible = false;
+            // 
+            // lbtypeofLoans
+            // 
+            this.lbtypeofLoans.AutoSize = true;
+            this.lbtypeofLoans.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbtypeofLoans.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbtypeofLoans.Location = new System.Drawing.Point(251, 161);
+            this.lbtypeofLoans.Name = "lbtypeofLoans";
+            this.lbtypeofLoans.Size = new System.Drawing.Size(140, 25);
+            this.lbtypeofLoans.TabIndex = 47;
+            this.lbtypeofLoans.Text = "TYPE OF LOANS";
+            this.lbtypeofLoans.Visible = false;
+            // 
+            // lbdateGranted
+            // 
+            this.lbdateGranted.AutoSize = true;
+            this.lbdateGranted.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbdateGranted.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbdateGranted.Location = new System.Drawing.Point(251, 208);
+            this.lbdateGranted.Name = "lbdateGranted";
+            this.lbdateGranted.Size = new System.Drawing.Size(139, 25);
+            this.lbdateGranted.TabIndex = 48;
+            this.lbdateGranted.Text = "DATE GRANTED";
+            this.lbdateGranted.Visible = false;
+            // 
+            // lbgrossLoan
+            // 
+            this.lbgrossLoan.AutoSize = true;
+            this.lbgrossLoan.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbgrossLoan.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbgrossLoan.Location = new System.Drawing.Point(516, 111);
+            this.lbgrossLoan.Name = "lbgrossLoan";
+            this.lbgrossLoan.Size = new System.Drawing.Size(121, 25);
+            this.lbgrossLoan.TabIndex = 49;
+            this.lbgrossLoan.Text = "GROSS LOAN";
+            this.lbgrossLoan.Visible = false;
+            // 
+            // lbInterest
+            // 
+            this.lbInterest.AutoSize = true;
+            this.lbInterest.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbInterest.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbInterest.Location = new System.Drawing.Point(516, 161);
+            this.lbInterest.Name = "lbInterest";
+            this.lbInterest.Size = new System.Drawing.Size(87, 25);
+            this.lbInterest.TabIndex = 50;
+            this.lbInterest.Text = "INTEREST";
+            this.lbInterest.Visible = false;
+            // 
+            // lbmonthAmort
+            // 
+            this.lbmonthAmort.AutoSize = true;
+            this.lbmonthAmort.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbmonthAmort.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbmonthAmort.Location = new System.Drawing.Point(516, 208);
+            this.lbmonthAmort.Name = "lbmonthAmort";
+            this.lbmonthAmort.Size = new System.Drawing.Size(230, 25);
+            this.lbmonthAmort.TabIndex = 51;
+            this.lbmonthAmort.Text = "MONTHLY AMORTIZATION";
+            this.lbmonthAmort.Visible = false;
+            // 
+            // lbtotalAmort
+            // 
+            this.lbtotalAmort.AutoSize = true;
+            this.lbtotalAmort.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbtotalAmort.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbtotalAmort.Location = new System.Drawing.Point(817, 111);
+            this.lbtotalAmort.Name = "lbtotalAmort";
+            this.lbtotalAmort.Size = new System.Drawing.Size(223, 25);
+            this.lbtotalAmort.TabIndex = 52;
+            this.lbtotalAmort.Text = "TOTAL MONTHLY AMORT.";
+            this.lbtotalAmort.Visible = false;
+            // 
+            // lbtotalPrincipal
+            // 
+            this.lbtotalPrincipal.AutoSize = true;
+            this.lbtotalPrincipal.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbtotalPrincipal.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbtotalPrincipal.Location = new System.Drawing.Point(817, 161);
+            this.lbtotalPrincipal.Name = "lbtotalPrincipal";
+            this.lbtotalPrincipal.Size = new System.Drawing.Size(235, 25);
+            this.lbtotalPrincipal.TabIndex = 53;
+            this.lbtotalPrincipal.Text = "TOTAL PRINCIPAL AMOUNT";
+            this.lbtotalPrincipal.Visible = false;
+            // 
+            // lbtotalInterest
+            // 
+            this.lbtotalInterest.AutoSize = true;
+            this.lbtotalInterest.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbtotalInterest.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbtotalInterest.Location = new System.Drawing.Point(817, 208);
+            this.lbtotalInterest.Name = "lbtotalInterest";
+            this.lbtotalInterest.Size = new System.Drawing.Size(144, 25);
+            this.lbtotalInterest.TabIndex = 54;
+            this.lbtotalInterest.Text = "TOTAL INTEREST";
+            this.lbtotalInterest.Visible = false;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.Location = new System.Drawing.Point(817, 85);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(223, 25);
+            this.metroLabel2.TabIndex = 57;
+            this.metroLabel2.Text = "TOTAL MONTHLY AMORT.";
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel4.Location = new System.Drawing.Point(516, 85);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(121, 25);
+            this.metroLabel4.TabIndex = 56;
+            this.metroLabel4.Text = "GROSS LOAN";
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel5.Location = new System.Drawing.Point(251, 85);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(104, 25);
+            this.metroLabel5.TabIndex = 55;
+            this.metroLabel5.Text = "FULL NAME";
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel6.Location = new System.Drawing.Point(817, 136);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(235, 25);
+            this.metroLabel6.TabIndex = 60;
+            this.metroLabel6.Text = "TOTAL PRINCIPAL AMOUNT";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel11.Location = new System.Drawing.Point(516, 136);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(87, 25);
+            this.metroLabel11.TabIndex = 59;
+            this.metroLabel11.Text = "INTEREST";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel12.Location = new System.Drawing.Point(251, 136);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(140, 25);
+            this.metroLabel12.TabIndex = 58;
+            this.metroLabel12.Text = "TYPE OF LOANS";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel13.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel13.Location = new System.Drawing.Point(817, 186);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(144, 25);
+            this.metroLabel13.TabIndex = 63;
+            this.metroLabel13.Text = "TOTAL INTEREST";
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.AutoSize = true;
+            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel14.Location = new System.Drawing.Point(516, 186);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(230, 25);
+            this.metroLabel14.TabIndex = 62;
+            this.metroLabel14.Text = "MONTHLY AMORTIZATION";
+            // 
+            // metroLabel15
+            // 
+            this.metroLabel15.AutoSize = true;
+            this.metroLabel15.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel15.Location = new System.Drawing.Point(251, 186);
+            this.metroLabel15.Name = "metroLabel15";
+            this.metroLabel15.Size = new System.Drawing.Size(139, 25);
+            this.metroLabel15.TabIndex = 61;
+            this.metroLabel15.Text = "DATE GRANTED";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1253, 714);
+            this.Controls.Add(this.metroLabel13);
+            this.Controls.Add(this.metroLabel14);
+            this.Controls.Add(this.metroLabel15);
+            this.Controls.Add(this.metroLabel6);
+            this.Controls.Add(this.metroLabel11);
+            this.Controls.Add(this.metroLabel12);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroLabel5);
+            this.Controls.Add(this.lbtotalInterest);
+            this.Controls.Add(this.lbtotalPrincipal);
+            this.Controls.Add(this.lbtotalAmort);
+            this.Controls.Add(this.lbmonthAmort);
+            this.Controls.Add(this.lbInterest);
+            this.Controls.Add(this.lbgrossLoan);
+            this.Controls.Add(this.lbdateGranted);
+            this.Controls.Add(this.lbtypeofLoans);
+            this.Controls.Add(this.lbfullName);
             this.Controls.Add(this.totalPrincipal);
             this.Controls.Add(this.metroLabel10);
             this.Controls.Add(this.totalInterest);
@@ -485,6 +738,24 @@
         private MetroFramework.Controls.MetroLabel totalPrincipal;
         private MetroFramework.Controls.MetroLabel totalInterest;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel lbfullName;
+        private MetroFramework.Controls.MetroLabel lbtypeofLoans;
+        private MetroFramework.Controls.MetroLabel lbdateGranted;
+        private MetroFramework.Controls.MetroLabel lbgrossLoan;
+        private MetroFramework.Controls.MetroLabel lbInterest;
+        private MetroFramework.Controls.MetroLabel lbmonthAmort;
+        private MetroFramework.Controls.MetroLabel lbtotalAmort;
+        private MetroFramework.Controls.MetroLabel lbtotalPrincipal;
+        private MetroFramework.Controls.MetroLabel lbtotalInterest;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
+        private MetroFramework.Controls.MetroLabel metroLabel15;
     }
 }
 

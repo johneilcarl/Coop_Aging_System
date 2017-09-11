@@ -82,6 +82,7 @@ namespace Cooperative_Aging
                 // int getdayss = getdays;
                 //MessageBox.Show(getdays.Days.ToString());
 
+                /////CALCULATION STARTS HERE
                 string loanDuration = cbtypeofLoans.SelectedValue.ToString(); //getting the value/duration of the selected type of loan. for example output: 12
                 int loanDuration1 = Int32.Parse(loanDuration); //then converted to int
 
@@ -149,9 +150,34 @@ namespace Cooperative_Aging
                     totalPrincipal.Text = sumPrincipal.ToString("#,##0.00");
                     totalInterest.Text = sumInterest.ToString("#,##0.00");
 
+                    /////CALCULATION ENDS HERE
 
                 }
-                
+
+                Double grossloan = Convert.ToDouble(tbBalance.Text);
+                // CODE OUTPUT OF LABELS STARTS HERE
+                lbfullName.Text = cbName.Text;
+                lbtypeofLoans.Text = cbtypeofLoans.Text;
+                lbdateGranted.Text = dTime.Text;
+                lbgrossLoan.Text = grossloan.ToString("#,##0.00"); 
+                lbInterest.Text = "%6"; //default interest but not yet sure if this is permanent. need to improve
+                lbmonthAmort.Text = monthlyAmort.ToString("#,##0.00");
+                lbtotalAmort.Text = totalMonthly.Text;
+                lbtotalPrincipal.Text = totalPrincipal.Text;
+                lbtotalInterest.Text = totalInterest.Text;
+
+                //SHOW LABELS AFTER GENERATE
+                lbfullName.Visible = true;
+                lbtypeofLoans.Visible = true;
+                lbdateGranted.Visible = true;
+                lbgrossLoan.Visible = true;
+                lbInterest.Visible = true;
+                lbmonthAmort.Visible = true;
+                lbtotalAmort.Visible = true;
+                lbtotalPrincipal.Visible = true;
+                lbtotalInterest.Visible = true;
+                //CODE OUTPUT OF LABELS ENDS HERE
+
 
             }
 
