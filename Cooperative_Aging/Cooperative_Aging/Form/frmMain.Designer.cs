@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
             this.idName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Due_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,9 +46,6 @@
             this.dTime = new MetroFramework.Controls.MetroDateTime();
             this.metroTextButton2 = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.metroTextButton6 = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
-            this.metroTextButton4 = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
-            this.tbLoans = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
-            this.tbPayments = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.metroTextButton3 = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.tbBalance = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -81,6 +79,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.cbtypeofLoans2 = new MetroFramework.Controls.MetroComboBox();
+            this.btPayments = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -234,7 +236,7 @@
             // 
             this.metroTextButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.metroTextButton2.Image = null;
-            this.metroTextButton2.Location = new System.Drawing.Point(1182, 0);
+            this.metroTextButton2.Location = new System.Drawing.Point(1176, -1);
             this.metroTextButton2.Name = "metroTextButton2";
             this.metroTextButton2.Size = new System.Drawing.Size(75, 23);
             this.metroTextButton2.TabIndex = 13;
@@ -253,45 +255,6 @@
             this.metroTextButton6.Text = "Member Info.";
             this.metroTextButton6.UseSelectable = true;
             this.metroTextButton6.UseVisualStyleBackColor = true;
-            // 
-            // metroTextButton4
-            // 
-            this.metroTextButton4.Image = null;
-            this.metroTextButton4.Location = new System.Drawing.Point(127, 455);
-            this.metroTextButton4.Name = "metroTextButton4";
-            this.metroTextButton4.Size = new System.Drawing.Size(101, 42);
-            this.metroTextButton4.TabIndex = 16;
-            this.metroTextButton4.Text = "Loans Details";
-            this.metroTextButton4.UseSelectable = true;
-            this.metroTextButton4.UseVisualStyleBackColor = true;
-            this.metroTextButton4.Visible = false;
-            this.metroTextButton4.Click += new System.EventHandler(this.metroTextButton4_Click);
-            // 
-            // tbLoans
-            // 
-            this.tbLoans.Image = null;
-            this.tbLoans.Location = new System.Drawing.Point(127, 407);
-            this.tbLoans.Name = "tbLoans";
-            this.tbLoans.Size = new System.Drawing.Size(101, 42);
-            this.tbLoans.TabIndex = 19;
-            this.tbLoans.Text = "Loans";
-            this.tbLoans.UseSelectable = true;
-            this.tbLoans.UseVisualStyleBackColor = true;
-            this.tbLoans.Visible = false;
-            this.tbLoans.Click += new System.EventHandler(this.tbLoans_Click);
-            // 
-            // tbPayments
-            // 
-            this.tbPayments.Image = null;
-            this.tbPayments.Location = new System.Drawing.Point(127, 503);
-            this.tbPayments.Name = "tbPayments";
-            this.tbPayments.Size = new System.Drawing.Size(101, 42);
-            this.tbPayments.TabIndex = 20;
-            this.tbPayments.Text = "Payments";
-            this.tbPayments.UseSelectable = true;
-            this.tbPayments.UseVisualStyleBackColor = true;
-            this.tbPayments.Visible = false;
-            this.tbPayments.Click += new System.EventHandler(this.tbPayments_Click);
             // 
             // metroTextButton3
             // 
@@ -667,18 +630,74 @@
             // 
             this.cbtypeofLoans2.FormattingEnabled = true;
             this.cbtypeofLoans2.ItemHeight = 23;
-            this.cbtypeofLoans2.Location = new System.Drawing.Point(236, 36);
+            this.cbtypeofLoans2.Location = new System.Drawing.Point(12, 436);
             this.cbtypeofLoans2.Name = "cbtypeofLoans2";
             this.cbtypeofLoans2.PromptText = "Type of Loans";
-            this.cbtypeofLoans2.Size = new System.Drawing.Size(218, 29);
+            this.cbtypeofLoans2.Size = new System.Drawing.Size(109, 29);
             this.cbtypeofLoans2.TabIndex = 67;
             this.cbtypeofLoans2.UseSelectable = true;
+            this.cbtypeofLoans2.Visible = false;
+            // 
+            // btPayments
+            // 
+            this.btPayments.BackColor = System.Drawing.Color.Silver;
+            this.btPayments.FlatAppearance.BorderSize = 0;
+            this.btPayments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btPayments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPayments.Image = ((System.Drawing.Image)(resources.GetObject("btPayments.Image")));
+            this.btPayments.Location = new System.Drawing.Point(246, 35);
+            this.btPayments.Name = "btPayments";
+            this.btPayments.Size = new System.Drawing.Size(171, 47);
+            this.btPayments.TabIndex = 69;
+            this.btPayments.Text = "Payments";
+            this.btPayments.UseVisualStyleBackColor = false;
+            this.btPayments.Click += new System.EventHandler(this.btPayments_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Silver;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(423, 35);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(171, 47);
+            this.button5.TabIndex = 70;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Silver;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(600, 35);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(171, 47);
+            this.button6.TabIndex = 71;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Silver;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(777, 35);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(171, 47);
+            this.button7.TabIndex = 72;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1253, 700);
+            this.ClientSize = new System.Drawing.Size(1250, 700);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btPayments);
             this.Controls.Add(this.cbtypeofLoans2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -712,10 +731,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.tbBalance);
             this.Controls.Add(this.metroTextButton3);
-            this.Controls.Add(this.tbPayments);
-            this.Controls.Add(this.tbLoans);
             this.Controls.Add(this.metroTextButton6);
-            this.Controls.Add(this.metroTextButton4);
             this.Controls.Add(this.metroTextButton2);
             this.Controls.Add(this.dTime);
             this.Controls.Add(this.cbtypeofLoans);
@@ -740,9 +756,6 @@
         private MetroFramework.Controls.MetroDateTime dTime;
         private MetroFramework.Controls.MetroTextBox.MetroTextButton metroTextButton2;
         private MetroFramework.Controls.MetroTextBox.MetroTextButton metroTextButton6;
-        private MetroFramework.Controls.MetroTextBox.MetroTextButton metroTextButton4;
-        private MetroFramework.Controls.MetroTextBox.MetroTextButton tbLoans;
-        private MetroFramework.Controls.MetroTextBox.MetroTextButton tbPayments;
         private MetroFramework.Controls.MetroTextBox.MetroTextButton metroTextButton3;
         private MetroFramework.Controls.MetroTextBox tbBalance;
         private MetroFramework.Controls.MetroLabel metroLabel1;
@@ -783,6 +796,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Interest;
         private System.Windows.Forms.DataGridViewTextBoxColumn Running_Balance;
         private MetroFramework.Controls.MetroComboBox cbtypeofLoans2;
+        private System.Windows.Forms.Button btPayments;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
 

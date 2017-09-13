@@ -20,14 +20,13 @@ namespace Cooperative_Aging
             InitializeComponent();
         }
 
-        string connString = "server=localhost;database=cooperative;Persist Security Info = True; User Id=root; password=root";
         string coop_database_string = "server=localhost;database=coop_database;Persist Security Info = True; User Id=root; password=root";
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            MySqlConnection MyConn = new MySqlConnection(connString);
+            MySqlConnection MyConn = new MySqlConnection(coop_database_string);
             //dTime.MaxDate = DateTime.Now;
             metroLabel10.Text = DateTime.Now.ToShortDateString();
 
@@ -56,8 +55,6 @@ namespace Cooperative_Aging
             cbtypeofLoans2.DataSource = typeofloansTable;
             cbtypeofLoans2.DisplayMember = "loans";
             cbtypeofLoans2.ValueMember = "loancode";
-
-
 
 
             cbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
@@ -213,53 +210,7 @@ namespace Cooperative_Aging
         {
 
         }
-
-
-        private void tbLoans_Click(object sender, EventArgs e)
-        {
-            MySqlConnection MyConn = new MySqlConnection(connString);
-
-            DataTable displayGrid = new DataTable();
-            string displayclass = "SELECT * FROM loanstable WHERE memberid = '" + cbName.SelectedValue + "'";
-            MySqlCommand displaytest = new MySqlCommand(displayclass, MyConn);
-            MySqlDataAdapter da1 = new MySqlDataAdapter(displaytest);
-            da1.Fill(displayGrid);
-            metroGrid1.DataSource = displayGrid;
-        }
-
-        private void tbPayments_Click(object sender, EventArgs e)
-        {
-            MySqlConnection MyConn = new MySqlConnection(connString);
-
-            DataTable displayGrid = new DataTable();
-            string displayclass = "SELECT * FROM payments WHERE memberid = '" + cbName.SelectedValue + "'";
-            MySqlCommand displaytest = new MySqlCommand(displayclass, MyConn);
-            MySqlDataAdapter da1 = new MySqlDataAdapter(displaytest);
-            da1.Fill(displayGrid);
-            metroGrid1.DataSource = displayGrid;
-        }
-
-        private void metroTextButton4_Click(object sender, EventArgs e)
-        {
-            
-            try
-            {
-                string getID = this.metroGrid1.CurrentRow.Cells[0].Value.ToString();//it will get the value on the first row in the selected row on datagridview
-                MySqlConnection MyConn = new MySqlConnection(connString);
-
-                DataTable displayGrid = new DataTable();
-                string displayclass = "SELECT * FROM loandetails WHERE loanid = '" + getID + "'";
-                MySqlCommand displaytest = new MySqlCommand(displayclass, MyConn);
-                MySqlDataAdapter da1 = new MySqlDataAdapter(displaytest);
-                da1.Fill(displayGrid);
-                metroGrid1.DataSource = displayGrid;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("No Selected Loans");
-            }
-
-        }
+   
 
         private void metroTextButton3_Click(object sender, EventArgs e)
         {
@@ -304,7 +255,31 @@ namespace Cooperative_Aging
                 if (MessageBox.Show("Be sure to recheck", "Verification", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     MySqlConnection coopDatabase_connection = new MySqlConnection(coop_database_string);
-                    //MessageBox.Show("*opens the confirmation form*");
+
+                    string lt_id_typesofLoans = cbtypeofLoans2.SelectedValue.ToString();
+                    string lt_id_membersinfo = cbName.SelectedValue.ToString();
+                    string lt_dateGranted = dTime.Value.ToShortDateString();
+                    Double lt_lbgrossLoan = Convert.ToDouble(lbgrossLoan.Text);
+                    Double lt_lbtotalInterest = Convert.ToDouble(lbtotalInterest.Text);
+                    Double lt_monthlyAmort = Convert.ToDouble(lbmonthAmort.Text);
+                    string lt_interest = lbInterest.Text;
+
+                    string insert_loanstable= "INSERT INTO loanstable (id_typesofLoans, id_membersinfo, dateGranted, grossLoan, totalInterest, monthlyAmort, interest) VALUES ('"
+                      + lt_id_typesofLoans + "','"
+                      + lt_id_membersinfo + "','"
+                      + lt_dateGranted + "','"
+                      + lt_lbgrossLoan + "','"
+                      + lt_lbtotalInterest + "','"
+                      + lt_monthlyAmort + "','"
+                      + lt_interest + 
+                      "');";
+
+                    MySqlCommand loansTable_Command = new MySqlCommand(insert_loanstable, coopDatabase_connection);
+                    coopDatabase_connection.Open();
+                    loansTable_Command.ExecuteReader();
+                    coopDatabase_connection.Close();
+                    MessageBox.Show("create item in loans table");
+
                     for (int i = 0; i < metroGrid1.Rows.Count; i++)
                     {
                         string id_Name = Convert.ToString(metroGrid1.Rows[i].Cells["idName"].Value);
@@ -323,7 +298,7 @@ namespace Cooperative_Aging
                         /* MessageBox.Show(id_Name + ", " + id_typeofLoans + ", " + dateGranted + ", " + dueDate + ", " 
                              + amountGranted + ", " + monthlyAmort + ", " + principalAmount + ", " + interestAmount + ", " + runningBalance + ", "
                              + paidStatus + ", " + amountPaid + ", " + amountDue );*/
-                        string insert_loanDetails = "INSERT INTO loansdetail (id_Name, id_typesofLoans, dateGranted, dueDate, amountGranted, monthlyAmort, principalAmount, interestAmount, runningBalance, paidStatus, amountPaid, amountDue) VALUES ('"
+                        string insert_loanDetails = "INSERT INTO loansdetail (id_loanstable, id_Name, id_typesofLoans, dateGranted, dueDate, amountGranted, monthlyAmort, principalAmount, interestAmount, runningBalance, paidStatus, amountPaid, amountDue) VALUES ((SELECT id_loanstable FROM loanstable ORDER BY id_loanstable Desc LIMIT 1),'"
                        + id_Name + "','"
                        + id_typesofLoans + "','"
                        + dateGranted + "','"
@@ -377,6 +352,12 @@ namespace Cooperative_Aging
             lbtotalAmort.Text = "-";
             lbtotalPrincipal.Text = "-";
             lbtotalInterest.Text = "-";
+        }
+
+        private void btPayments_Click(object sender, EventArgs e)
+        {
+            Form.frmPayments payments = new Form.frmPayments();
+            payments.ShowDialog();
         }
     }
 }
