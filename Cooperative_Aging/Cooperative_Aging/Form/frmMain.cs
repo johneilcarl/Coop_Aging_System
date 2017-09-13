@@ -21,7 +21,7 @@ namespace Cooperative_Aging
         }
 
         string connString = "server=localhost;database=cooperative;Persist Security Info = True; User Id=root; password=root";
-        string sampleAgingDatabase = "server=localhost;database=sample_aging;Persist Security Info = True; User Id=root; password=root";
+        string coop_database_string = "server=localhost;database=coop_Database;Persist Security Info = True; User Id=root; password=root";
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,6 +53,12 @@ namespace Cooperative_Aging
             cbtypeofLoans.DisplayMember = "loans";
             cbtypeofLoans.ValueMember = "duration";
 
+            cbtypeofLoans2.DataSource = typeofloansTable;
+            cbtypeofLoans2.DisplayMember = "loans";
+            cbtypeofLoans2.ValueMember = "loancode";
+
+
+
 
             cbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             cbName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -64,11 +70,12 @@ namespace Cooperative_Aging
 
         }
 
+        
+
         private void metroTextButton1_Click(object sender, EventArgs e)
         {
             try
             {
-                MySqlConnection MyConn = new MySqlConnection(sampleAgingDatabase);
 
                 metroGrid1.Rows.Clear();
                 string currentDate = this.metroLabel10.Text;
@@ -111,13 +118,13 @@ namespace Cooperative_Aging
                     DataGridViewRow row = metroGrid1.Rows[rowId];
 
                     // Add the data
-                    row.Cells["Full_Name"].Value = cbName.Text;
+                    row.Cells["idName"].Value = cbName.SelectedValue.ToString();
                     row.Cells["Due_Date"].Value = dueDate;
                     row.Cells["Amount_Granted"].Value = prLoan.ToString("#,##0.00");
                     row.Cells["Monthly_Amortization"].Value = monthlyAmort.ToString("#,##0.00");
                     row.Cells["Principal_Amount"].Value = principalAmount.ToString("#,##0.00");
-                    row.Cells["Amount_Paid"].Value = "0";
-                    row.Cells["Amount_Not_Paid"].Value = "0";
+                    //row.Cells["Amount_Paid"].Value = "0";
+                    //row.Cells["Amount_Not_Paid"].Value = "0";
 
                     Double getBalance = prLoan - (principalAmount * x);
                     row.Cells["Running_Balance"].Value = getBalance.ToString("#,##0.00");
@@ -134,8 +141,12 @@ namespace Cooperative_Aging
                         Double withInterest = (getBalance2 - (principalMinusInterest * (x - 6))); //decrement running balance with interest
                         row.Cells["Running_Balance"].Value = withInterest.ToString("#,##0.00");
 
-
                     }
+                    /*
+                    if(x==12)
+                    {
+                        row.Cells["Running_Balance"].Value = "-";
+                    }*/
 
                     Double sumMonthly = 0;
                     Double sumPrincipal = 0;
@@ -177,6 +188,12 @@ namespace Cooperative_Aging
                 lbtotalPrincipal.Visible = true;
                 lbtotalInterest.Visible = true;
                 //CODE OUTPUT OF LABELS ENDS HERE
+
+                //start disable toolbox here
+                cbName.Enabled = false;
+                cbtypeofLoans.Enabled = false;
+                dTime.Enabled = false;
+                //end
 
 
             }
@@ -266,6 +283,80 @@ namespace Cooperative_Aging
         private void cbtypeofLoans_SelectedIndexChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(cbtypeofLoans.SelectedValue.ToString());
+        }
+
+
+        private void tbBalance_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                metroTextButton1_Click( sender,  e);
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Be sure to recheck", "Verification", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                MySqlConnection coopDatabase_connection = new MySqlConnection(coop_database_string);
+                //MessageBox.Show("*opens the confirmation form*");
+                for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                {
+                    string id_Name = Convert.ToString(metroGrid1.Rows[i].Cells["idName"].Value);
+                    string id_typeofLoans = cbtypeofLoans2.SelectedValue.ToString();
+                    string dateGranted = dTime.Value.ToShortDateString();
+                    string dueDate = Convert.ToString(metroGrid1.Rows[i].Cells["Due_Date"].Value);
+                    Double amountGranted = Convert.ToDouble(metroGrid1.Rows[i].Cells["Amount_Granted"].Value);
+                    Double monthlyAmort = Convert.ToDouble(metroGrid1.Rows[i].Cells["Monthly_Amortization"].Value);
+                    Double principalAmount = Convert.ToDouble(metroGrid1.Rows[i].Cells["Principal_Amount"].Value);
+                    Double interestAmount = Convert.ToDouble(metroGrid1.Rows[i].Cells["Interest"].Value);
+                    Double runningBalance = Convert.ToDouble(metroGrid1.Rows[i].Cells["Running_Balance"].Value);
+                    int paidStatus = 0;
+                    Double amountPaid = 0.00;
+                    Double amountDue = 0.00;
+
+                    MessageBox.Show(id_typeofLoans);
+                   /* string insert_loanDetails = "INSERT INTO loansdetails (id_Name, id_typeofLoans, dateGranted, dueDate, amountGranted, monthlyAmort, principalAmount, interestAmount, runningBalance, paidStatus, amountPaid, amountDue) VALUES ('"
+                   + this.timeHour1.Text + ":" + this.timeMin1.Text + "','"
+                   + this.monthCalendar1.SelectionRange.Start.ToString("MM/dd/yyyy") + "','"
+                   + this.timeHour1.Text + ":" + this.timeMin1.Text + " " + this.AmPm2.Text + "','"
+                   + this.timeHour2.Text + ":" + this.timeMin2.Text + " " + this.AmPm.Text + "','"
+                   + this.richTextBox1.Text +
+                   "');";*/
+
+                   // MySqlCommand loanDetails_Command = new MySqlCommand(insert_loanDetails, coopDatabase_connection);
+                    coopDatabase_connection.Open();
+                    //loanDetails_Command.ExecuteReader();
+                    coopDatabase_connection.Close();
+                }
+
+            }
+            /*Form.frmConfirm frmconfirmation = new Form.frmConfirm();
+            frmconfirmation.ShowDialog();*/
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            
+            
+            cbName.Enabled = true;
+            cbtypeofLoans.Enabled = true;
+            dTime.Enabled = true;
+            tbBalance.Clear();
+            metroGrid1.Rows.Clear();
+
+            lbfullName.Text = "-";
+            lbtypeofLoans.Text = "-";
+            lbdateGranted.Text = "-";
+            lbgrossLoan.Text = "-";
+            lbInterest.Text = "-"; //default interest but not yet sure if this is permanent. need to improve
+            lbmonthAmort.Text = "-";
+            lbtotalAmort.Text = "-";
+            lbtotalPrincipal.Text = "-";
+            lbtotalInterest.Text = "-";
         }
     }
 }
