@@ -21,7 +21,7 @@ namespace Cooperative_Aging
         }
 
         string connString = "server=localhost;database=cooperative;Persist Security Info = True; User Id=root; password=root";
-        string coop_database_string = "server=localhost;database=coop_Database;Persist Security Info = True; User Id=root; password=root";
+        string coop_database_string = "server=localhost;database=coop_database;Persist Security Info = True; User Id=root; password=root";
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -297,42 +297,62 @@ namespace Cooperative_Aging
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if (MessageBox.Show("Be sure to recheck", "Verification", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try // to check the errors
             {
-                MySqlConnection coopDatabase_connection = new MySqlConnection(coop_database_string);
-                //MessageBox.Show("*opens the confirmation form*");
-                for (int i = 0; i < metroGrid1.Rows.Count; i++)
+
+
+                if (MessageBox.Show("Be sure to recheck", "Verification", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string id_Name = Convert.ToString(metroGrid1.Rows[i].Cells["idName"].Value);
-                    string id_typeofLoans = cbtypeofLoans2.SelectedValue.ToString();
-                    string dateGranted = dTime.Value.ToShortDateString();
-                    string dueDate = Convert.ToString(metroGrid1.Rows[i].Cells["Due_Date"].Value);
-                    Double amountGranted = Convert.ToDouble(metroGrid1.Rows[i].Cells["Amount_Granted"].Value);
-                    Double monthlyAmort = Convert.ToDouble(metroGrid1.Rows[i].Cells["Monthly_Amortization"].Value);
-                    Double principalAmount = Convert.ToDouble(metroGrid1.Rows[i].Cells["Principal_Amount"].Value);
-                    Double interestAmount = Convert.ToDouble(metroGrid1.Rows[i].Cells["Interest"].Value);
-                    Double runningBalance = Convert.ToDouble(metroGrid1.Rows[i].Cells["Running_Balance"].Value);
-                    int paidStatus = 0;
-                    Double amountPaid = 0.00;
-                    Double amountDue = 0.00;
+                    MySqlConnection coopDatabase_connection = new MySqlConnection(coop_database_string);
+                    //MessageBox.Show("*opens the confirmation form*");
+                    for (int i = 0; i < metroGrid1.Rows.Count; i++)
+                    {
+                        string id_Name = Convert.ToString(metroGrid1.Rows[i].Cells["idName"].Value);
+                        string id_typesofLoans = cbtypeofLoans2.SelectedValue.ToString();
+                        string dateGranted = dTime.Value.ToShortDateString();
+                        string dueDate = Convert.ToString(metroGrid1.Rows[i].Cells["Due_Date"].Value);
+                        Double amountGranted = Convert.ToDouble(metroGrid1.Rows[i].Cells["Amount_Granted"].Value);
+                        Double monthlyAmort = Convert.ToDouble(metroGrid1.Rows[i].Cells["Monthly_Amortization"].Value);
+                        Double principalAmount = Convert.ToDouble(metroGrid1.Rows[i].Cells["Principal_Amount"].Value);
+                        Double interestAmount = Convert.ToDouble(metroGrid1.Rows[i].Cells["Interest"].Value);
+                        Double runningBalance = Convert.ToDouble(metroGrid1.Rows[i].Cells["Running_Balance"].Value);
+                        int paidStatus = 0;
+                        Double amountPaid = 0.00;
+                        Double amountDue = 0.00;
 
-                    MessageBox.Show(id_typeofLoans);
-                   /* string insert_loanDetails = "INSERT INTO loansdetails (id_Name, id_typeofLoans, dateGranted, dueDate, amountGranted, monthlyAmort, principalAmount, interestAmount, runningBalance, paidStatus, amountPaid, amountDue) VALUES ('"
-                   + this.timeHour1.Text + ":" + this.timeMin1.Text + "','"
-                   + this.monthCalendar1.SelectionRange.Start.ToString("MM/dd/yyyy") + "','"
-                   + this.timeHour1.Text + ":" + this.timeMin1.Text + " " + this.AmPm2.Text + "','"
-                   + this.timeHour2.Text + ":" + this.timeMin2.Text + " " + this.AmPm.Text + "','"
-                   + this.richTextBox1.Text +
-                   "');";*/
+                        /* MessageBox.Show(id_Name + ", " + id_typeofLoans + ", " + dateGranted + ", " + dueDate + ", " 
+                             + amountGranted + ", " + monthlyAmort + ", " + principalAmount + ", " + interestAmount + ", " + runningBalance + ", "
+                             + paidStatus + ", " + amountPaid + ", " + amountDue );*/
+                        string insert_loanDetails = "INSERT INTO loansdetail (id_Name, id_typesofLoans, dateGranted, dueDate, amountGranted, monthlyAmort, principalAmount, interestAmount, runningBalance, paidStatus, amountPaid, amountDue) VALUES ('"
+                       + id_Name + "','"
+                       + id_typesofLoans + "','"
+                       + dateGranted + "','"
+                       + dueDate + "','"
+                       + amountGranted + "','"
+                       + monthlyAmort + "','"
+                       + principalAmount + "','"
+                       + interestAmount + "','"
+                       + runningBalance + "','"
+                       + paidStatus + "','"
+                       + amountPaid + "','"
+                        + amountDue +
+                       "');";
 
-                   // MySqlCommand loanDetails_Command = new MySqlCommand(insert_loanDetails, coopDatabase_connection);
-                    coopDatabase_connection.Open();
-                    //loanDetails_Command.ExecuteReader();
-                    coopDatabase_connection.Close();
+                        MySqlCommand loanDetails_Command = new MySqlCommand(insert_loanDetails, coopDatabase_connection);
+                        coopDatabase_connection.Open();
+                        loanDetails_Command.ExecuteReader();
+                        coopDatabase_connection.Close();
+
+                        button1.Enabled = false;  //confirm button disable
+                    }
+                    MessageBox.Show("The Data is Inserted.");
                 }
-
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             /*Form.frmConfirm frmconfirmation = new Form.frmConfirm();
             frmconfirmation.ShowDialog();*/
         }
@@ -340,8 +360,8 @@ namespace Cooperative_Aging
         private void button2_Click(object sender, EventArgs e)
         {
 
-            
-            
+
+            button1.Enabled = true; //confirm button
             cbName.Enabled = true;
             cbtypeofLoans.Enabled = true;
             dTime.Enabled = true;
